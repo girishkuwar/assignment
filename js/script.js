@@ -50,4 +50,33 @@ form.addEventListener('submit',function(event) {
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const subject = document.getElementById('subject').value.trim();
-})
+
+  const errors = [];
+
+  if (name === ''){
+    errors.push('name is required');
+  }
+
+  if (email === ''){
+    errors.push('email is required');
+  } else if(!isValidEmail(email)) {
+    errors.push('email is invalid');
+  }
+
+  if (subject === '') {
+    errors.push('subject is required');
+  }
+
+  if (errors.length > 0) {
+    alert(errors.join('\n'));
+  } else {
+    form.submit();
+    alert('Submited')
+  }
+
+});
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
