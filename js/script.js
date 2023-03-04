@@ -41,3 +41,13 @@ function SlideShow() {
   slides[slidePosition-1].style.display = "block";
   setTimeout(SlideShow, 10000); // Change image every 2 seconds
 } 
+
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit',function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+})
